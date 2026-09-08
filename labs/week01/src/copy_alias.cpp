@@ -23,6 +23,12 @@ int main() {
 
     a.push_back(4);
 
+    /*
+    a = {1, 20, 3, 4}
+    b = {10, 2, 3},
+    c = {1, 20, 3, 4} 
+    */
+
     print_vector("a", a);
     print_vector("b", b);
     print_vector("c", c);
