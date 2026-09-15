@@ -1,52 +1,35 @@
 # BS0013 Week 3 Lab — Dynamic Array
 
+## Start here
+
+Read **`instructions.md` first**. It is the complete Week 3 student handout covering:
+
+- updating your fork from the official course repository;
+- opening and building the Week 3 Codespaces workspace;
+- the required lab tasks;
+- verification and sanitizer checks;
+- committing and pushing your work;
+- the exact Moodle submission format and required summary.
+
+Use `assignment.md` for the deeper conceptual and implementation specification.
+
 Week 3 uses the **same fork and Codespace** as Weeks 1 and 2. The new material must first be merged from the official course repository into your fork.
 
-## 1. Save your current work
+## Quick update reminder
 
-From the repository root:
+From the repository root, save any work you want to keep, then update from the official repository:
 
 ```bash
 git status
-```
-
-If you have uncommitted Week 1/2 work that you want to keep, commit it before updating:
-
-```bash
-git add .
-git commit -m "Save work before Week 3 update"
-```
-
-## 2. Add the official repository as `upstream`
-
-Check your remotes:
-
-```bash
-git remote -v
-```
-
-Your `origin` should point to **your fork**. If there is no `upstream` remote yet, add it once:
-
-```bash
-git remote add upstream https://github.com/ValRCS/RBS_BS0013_Data_Structures.git
-```
-
-Do not run that command again if `upstream` already exists.
-
-## 3. Pull the Week 3 release into your fork
-
-```bash
 git switch main
 git fetch upstream
 git merge upstream/main
 git push origin main
 ```
 
-Using `merge` is intentional: your fork may already contain your own Week 1/2 commits, and those commits should be preserved.
+If you have not configured `upstream` yet, see `instructions.md` for the one-time setup command and conflict-resolution guidance.
 
-If Git reports a conflict, run `git status`, inspect the conflicted files, and resolve the conflict before committing the merge. Do **not** delete your previous work just to make the update succeed.
-
-## 4. Open and build Week 3
+## Quick build
 
 ```bash
 cd labs/week03
@@ -69,9 +52,9 @@ Then implement `IntVector` in:
 src/int_vector.cpp
 ```
 
-Follow `assignment.md` and complete `reflection.md`.
+Follow `instructions.md`, `assignment.md`, and complete `reflection.md`.
 
-## 5. Test your implementation
+## Test your implementation
 
 Once the core implementation is complete:
 
@@ -88,7 +71,8 @@ Do not modify `tests/public_tests.cpp` merely to make an incorrect implementatio
 ## Main Week 3 files
 
 ```text
-assignment.md                 full practical instructions
+instructions.md               complete workflow and Moodle submission instructions
+assignment.md                 detailed practical and conceptual specification
 include/int_vector.hpp        IntVector interface and representation
 src/int_vector.cpp            TODO implementation
 src/main.cpp                  small demonstration program
