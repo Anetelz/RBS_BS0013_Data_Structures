@@ -63,6 +63,7 @@ After synchronizing your fork:
 cd labs/week06
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
+```
 
 Then read `labs/week06/instructions.md` and `labs/week06/assignment.md`.
 
