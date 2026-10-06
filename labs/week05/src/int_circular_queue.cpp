@@ -32,39 +32,64 @@ std::size_t IntCircularQueue::capacity() const {
 }
 
 int& IntCircularQueue::front() {
-    todo("TODO: implement front()");
+    assert(!empty());
+    //Returns the front element
+    return data_[front_];
 }
 
 const int& IntCircularQueue::front() const {
-    todo("TODO: implement front() const");
+    assert(!empty());
+    //Returns the front element
+    return data_[front_];
 }
 
 int& IntCircularQueue::back() {
-    todo("TODO: implement back()");
+    assert(!empty());
+    //Returns the back element
+    return data_[physical_index(size_ -1)];
 }
 
 const int& IntCircularQueue::back() const {
-    todo("TODO: implement back() const");
+    assert(!empty());
+    //Returns the back element
+    return data_[physical_index(size_ -1)];
 }
 
 void IntCircularQueue::enqueue(int value) {
-    (void)value;
-    todo("TODO: implement enqueue()");
+    assert(!full());
+    //Stores the value in data_
+    data_[(front_ + size_) % capacity()] = value;
+    size_++;
+    check_invariant();
 }
 
 void IntCircularQueue::dequeue() {
-    todo("TODO: implement dequeue()");
+    assert(!empty());
+
+    //Ignores the current first_ value, changes the next value to be the first_
+    front_ = (front_ + 1) % capacity();
+    size_--;
+
+    check_invariant();
 }
 
 void IntCircularQueue::clear() {
-    todo("TODO: implement clear()");
+    size_ = 0;
+    front_ = 0;
+    check_invariant();
 }
 
 std::size_t IntCircularQueue::physical_index(std::size_t logical_index) const {
-    (void)logical_index;
-    todo("TODO: implement physical_index()");
+    assert(logical_index < size_);
+    //Clalculates and returns the physical index based on the given logical index
+    return (front_ + logical_index) % capacity();
 }
 
 void IntCircularQueue::check_invariant() const {
-    todo("TODO: implement check_invariant()");
+    //Checking if backing storage is non-empty
+    assert(capacity() != 0);
+    //Checking if `front_` is a valid physical index
+    assert(front_ < capacity());
+    //Checking if `size_` does not exceed capacity
+    assert(size_ <= capacity());
 }
